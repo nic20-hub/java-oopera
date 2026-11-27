@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 
 public class Show {
-    String title;
-    int duration;
-    Director director;
-    ArrayList<Actor> listOfActors;
+    private String title;
+    private int duration;
+    private Director director;
+    private ArrayList<Actor> listOfActors;
 
     public Show(String title, int duration, Director director, ArrayList<Actor> listOfActors) {
         this.title = title;
@@ -32,13 +32,25 @@ public class Show {
     }
 
     public void replaceActor(Actor newActor, String surnameToReplace) {
+        int indexToReplace = -1;
         for (int i = 0; i < listOfActors.size(); i++) {
-            if (listOfActors.get(i).surname.equals(surnameToReplace)) {
-                listOfActors.set(i, newActor);
-                return;
+            if (listOfActors.get(i).getSurname().equals(surnameToReplace)) {
+                indexToReplace = i;
+                break;
             }
         }
-        System.out.println("Актёр с фамилией " + surnameToReplace + " не найден.");
+        if (indexToReplace == -1) {
+            System.out.println("Актёр с фамилией " + surnameToReplace + " не найден.");
+            return;
+        }
+        if (listOfActors.contains(newActor)) {
+            System.out.println("Актёр " + newActor.getName() + " " + newActor.getSurname() +
+                    " уже участвует в спектакле. Замена отменена.");
+            return;
+        }
+
+        listOfActors.set(indexToReplace, newActor);
+        System.out.println("Актёр успешно заменён.");
     }
 
     @Override

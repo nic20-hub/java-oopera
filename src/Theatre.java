@@ -2,12 +2,12 @@ import java.util.ArrayList;
 
 public class Theatre {
     public static void main(String[] args) {
-        Actor actor1 = new Actor("Александр", "Ревва", Person.Gender.MALE, "180");
-        Actor actor2 = new Actor("Дмитрий", "Нагиев", Person.Gender.MALE, "173");
-        Actor actor3 = new Actor("Марина", "Федункив", Person.Gender.FEMALE, "169");
+        Actor actor1 = new Actor("Александр", "Ревва", Person.Gender.MALE, 180);
+        Actor actor2 = new Actor("Дмитрий", "Нагиев", Person.Gender.MALE, 173);
+        Actor actor3 = new Actor("Марина", "Федункив", Person.Gender.FEMALE, 169);
 
-        Director dir1 = new Director("Ярослав", "Петров", Person.Gender.MALE, "4");
-        Director dir2 = new Director("Елена", "Иванова", Person.Gender.FEMALE, "6");
+        Director dir1 = new Director("Ярослав", "Петров", Person.Gender.MALE, 4);
+        Director dir2 = new Director("Елена", "Иванова", Person.Gender.FEMALE, 6);
 
         ArrayList<Actor> castForShow = new ArrayList<>();
         ArrayList<Actor> castForBallet = new ArrayList<>();

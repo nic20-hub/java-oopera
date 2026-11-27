@@ -1,9 +1,9 @@
 import java.util.Objects;
 
 public class Actor extends Person{
-    String height;
+    private int height;
 
-    public Actor(String name, String surname, Gender gender, String height) {
+    public Actor(String name, String surname, Gender gender, int height) {
         super(name, surname, gender);
         this.height = height;
     }
@@ -13,18 +13,22 @@ public class Actor extends Person{
         if (this == o) return true;
         if (!(o instanceof Actor)) return false;
         Actor actor = (Actor) o;
-        return Objects.equals(this.name, actor.name)
-                && Objects.equals(this.surname, actor.surname)
-                && Objects.equals(this.height, actor.height);
+        return getHeight() == actor.getHeight()
+                && Objects.equals(getName(), actor.getName())
+                && Objects.equals(getSurname(), actor.getSurname());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.name, this.surname, this.height);
+        return Objects.hash(getName(), getSurname(), getHeight());
     }
 
     @Override
     public String toString() {
-        return name + " " + surname + " (" + height + ")";
+        return getName() + " " + getSurname() + " (" + getHeight() + " см)";
+    }
+
+    public int getHeight() {
+        return height;
     }
 }
